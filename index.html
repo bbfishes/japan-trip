@@ -197,7 +197,15 @@
       <div class="emergency-card"><h3>💡 實用 Tips</h3><ul class="tips-list"><li>日本電壓 100V，台灣充電器可直接用</li><li>便利商店有 ATM 可領日幣</li><li>計程車後門會自動開關</li><li>溫泉禮儀：先洗乾淨再泡</li></ul></div>
     </section>
     <section id="expenses" class="tab hidden">
-      <div class="expense-summary"><div class="total-box"><span class="total-label">總花費</span><span class="total-amount" id="total-expense">¥0</span></div><div class="per-person-box"><span class="per-label">每人平均</span><span class="per-amount" id="per-person">¥0</span></div></div>
+      <div class="expense-summary">
+        <div class="fund-box"><span class="fund-label">💰 公積金</span><span class="fund-amount" id="fund-balance">¥0</span></div>
+        <div class="total-box"><span class="total-label">已花費</span><span class="total-amount" id="total-expense">¥0</span></div>
+        <div class="per-person-box"><span class="per-label">每人平均</span><span class="per-amount" id="per-person">¥0</span></div>
+      </div>
+      <div class="fund-input">
+        <input type="number" id="fund-amount" placeholder="每人出資 (¥)">
+        <button id="set-fund-btn">設定公積金</button>
+      </div>
       <div class="add-expense"><input type="text" id="expense-name" placeholder="項目名稱"><input type="number" id="expense-amount" placeholder="金額 (¥)"><select id="expense-payer"><option value="共同">共同支出</option><option value="成員1">成員 1</option><option value="成員2">成員 2</option><option value="成員3">成員 3</option><option value="成員4">成員 4</option><option value="成員5">成員 5</option><option value="成員6">成員 6</option></select><button id="add-expense-btn">新增</button></div>
       <div class="expense-list" id="expense-list"></div>
       <button class="reset-btn" id="reset-expenses">清除所有紀錄</button>

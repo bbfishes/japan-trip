@@ -99,6 +99,31 @@ editableFields.forEach(field => {
 });
 
 let expenses = [];
+let fundTotal = 0;
+
+function loadFund() {
+  const saved = localStorage.getItem('fund-total');
+  if (saved) {
+    fundTotal = parseInt(saved) || 0;
+  }
+  updateFundDisplay();
+}
+
+function saveFund() {
+  localStorage.setItem('fund-total', fundTotal.toString());
+}
+
+function updateFundDisplay() {
+  const fundEl = document.getElementById('fund-balance');
+  const totalSpent = expenses.filter(e => e.payer === '共同').reduce((sum, e) => sum + e.amount, 0);
+  const remaining = fundTotal - totalSpent;
+  fundEl.textContent = '¥' + remaining.toLocaleString();
+  if (remaining < 0) {
+    fundEl.style.color = '#e94560';
+  } else {
+    fundEl.style.color = '#48bb78';
+  }
+}
 
 function loadExpenses() {
   const saved = localStorage.getItem('expenses');
@@ -127,6 +152,7 @@ function renderExpenses() {
   });
   totalEl.textContent = '¥' + total.toLocaleString();
   perPersonEl.textContent = '¥' + Math.round(total / 6).toLocaleString();
+  updateFundDisplay();
   document.querySelectorAll('.expense-delete').forEach(btn => {
     btn.addEventListener('click', () => {
       expenses.splice(parseInt(btn.dataset.index), 1);
@@ -158,8 +184,20 @@ document.getElementById('reset-expenses').addEventListener('click', () => {
   }
 });
 
+document.getElementById('set-fund-btn').addEventListener('click', () => {
+  const input = document.getElementById('fund-amount');
+  const perPerson = parseInt(input.value) || 0;
+  if (!perPerson) { alert('請輸入每人出資金額'); return; }
+  fundTotal = perPerson * 6;
+  saveFund();
+  updateFundDisplay();
+  input.value = '';
+  alert('公積金設定完成：¥' + fundTotal.toLocaleString() + '（每人 ¥' + perPerson.toLocaleString() + '）');
+});
+
 loadPackingState();
 loadEmergencyInfo();
+loadFund();
 loadExpenses();
 
 if ('serviceWorker' in navigator) {

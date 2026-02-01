@@ -250,3 +250,38 @@ padding: 10px 0;
 .expense-info span { font-size: 0.8rem; color: var(--text-secondary); }
 .expense-amount { font-size: 1.1rem; font-weight: 600; color: var(--accent); }
 .expense-delete { background: none; border: none; color: var(--text-secondary); font-size: 1.2rem; cursor: pointer; margin-left: 8px; }
+
+/* Fund styles */
+.expense-summary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.fund-box {
+  background: linear-gradient(135deg, rgba(72, 187, 120, 0.2), rgba(56, 161, 105, 0.1));
+  border: 1px solid var(--success);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.fund-label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; }
+.fund-amount { font-size: 1.2rem; font-weight: 700; color: var(--success); }
+.fund-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.fund-input input {
+  padding: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+.fund-input button {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--success), #38a169);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
