@@ -17,6 +17,7 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
+  font-size: 18px;
 }
 .app { max-width: 480px; margin: 0 auto; min-height: 100vh; }
 .header {
@@ -24,8 +25,8 @@ body {
   padding: 24px 20px;
   text-align: center;
 }
-.header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; }
-.subtitle { font-size: 0.9rem; opacity: 0.9; }
+.header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+.subtitle { font-size: 1rem; opacity: 0.9; }
 .nav {
   display: flex;
   overflow-x: auto;
@@ -39,7 +40,7 @@ body {
   background: none;
   border: none;
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: 1rem;
   cursor: pointer;
   border-bottom: 3px solid transparent;
 }
@@ -88,15 +89,15 @@ body {
   background: var(--accent);
   border-radius: 50%;
 }
-.time { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+.time { font-size: 1rem; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
 .event {
   background: var(--bg-card);
   padding: 14px;
   border-radius: 12px;
   border: 1px solid var(--border);
 }
-.event h3 { font-size: 1rem; margin-bottom: 4px; }
-.event p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px; }
+.event h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.event p { font-size: 1rem; color: var(--text-secondary); margin-bottom: 8px; }
 .tag {
   display: inline-block;
   padding: 4px 10px;
