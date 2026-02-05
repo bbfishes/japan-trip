@@ -169,6 +169,14 @@ body {
 .event h3, .food-header h3, .emergency-card h3 { font-size: 1.1rem; margin-bottom: 6px; color: var(--text-primary); font-weight: 700; }
 .event p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px; }
 
+/* Event Image */
+.event-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
 /* Tags */
 .tag {
   display: inline-block;
