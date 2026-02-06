@@ -8,6 +8,8 @@ navBtns.forEach(btn => {
     tabs.forEach(t => t.classList.add('hidden'));
     btn.classList.add('active');
     document.getElementById(tabId).classList.remove('hidden');
+    // 切換分頁時自動捲回頂部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
@@ -20,7 +22,16 @@ dayBtns.forEach(btn => {
     dayBtns.forEach(b => b.classList.remove('active'));
     dayContents.forEach(d => d.classList.add('hidden'));
     btn.classList.add('active');
-    document.getElementById('day-' + day).classList.remove('hidden');
+    
+    const targetDay = document.getElementById('day-' + day);
+    targetDay.classList.remove('hidden');
+    
+    // 當切換天數時，自動滑動到該天旅程的起始位置
+    // 我們滑動到 day-selector 的位置，確保按鈕跟內容都在視線內
+    const selector = document.querySelector('.day-selector');
+    if (selector) {
+      selector.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
 
