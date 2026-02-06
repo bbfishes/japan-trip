@@ -26,12 +26,12 @@ dayBtns.forEach(btn => {
     const targetDay = document.getElementById('day-' + day);
     targetDay.classList.remove('hidden');
     
-    // 當切換天數時，自動滑動到該天旅程的起始位置
-    // 我們滑動到 day-selector 的位置，確保按鈕跟內容都在視線內
-    const selector = document.querySelector('.day-selector');
-    if (selector) {
-      selector.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // 修正：直接滑動到該天旅程的內容起始位置，而非只到選擇器
+    // 使用 scrollIntoView 並考量到上方 sticky 導航列的空間
+    const yOffset = -80; // 預留上方導航列的空間
+    const y = targetDay.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    
+    window.scrollTo({ top: y, behavior: 'smooth' });
   });
 });
 
